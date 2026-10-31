@@ -1,7 +1,7 @@
 {
   "domain": "lg_webos_camera_wall",
   "name": "LG webOS Camera Wall",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "documentation": "https://github.com/Luke-Shepp/ha-lg-webos-camera-wall",
   "dependencies": ["webostv"],
   "config_flow": true,

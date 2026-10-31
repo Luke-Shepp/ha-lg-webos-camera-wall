@@ -126,12 +126,22 @@
       else if (status === 'loading') state.textContent = 'Loading…';
     });
     players.push(player);
-    var mode = settings.mode || 'mjpeg';
-    player.play(ha, { camera: camera.id, mode: mode, refresh: 1000 }).catch(function (err) {
+    // Four live decoders/streams overwhelm this TV. Keep the grid cheap and
+    // reserve the selected live mode for the one-camera view.
+    var mode = single ? (settings.mode || 'mjpeg') : 'snapshot';
+    var snapshotOptions = {
+      camera: camera.id, mode: 'snapshot',
+      refresh: single ? 1000 : 3000,
+      width: single ? 1280 : 800,
+      height: single ? 720 : 450,
+      delay: single ? 0 : index * 750
+    };
+    var source = mode === 'snapshot' ? snapshotOptions : { camera: camera.id, mode: mode };
+    player.play(ha, source).catch(function (err) {
       if (current !== generation) return;
       if (mode !== 'snapshot') {
         state.textContent = 'Trying snapshots…';
-        player.play(ha, { camera: camera.id, mode: 'snapshot', refresh: 1000 }).catch(function (fallbackError) {
+        player.play(ha, snapshotOptions).catch(function (fallbackError) {
           if (current === generation) state.textContent = fallbackError.message || String(fallbackError);
         });
       } else {

@@ -1,6 +1,6 @@
 {
   "id": "io.github.lukeshepp.camera-wall",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "vendor": "Luke-Shepp",
   "type": "web",
   "main": "index.html",

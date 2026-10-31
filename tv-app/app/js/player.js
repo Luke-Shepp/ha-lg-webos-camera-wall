@@ -49,7 +49,7 @@
 
     var started;
     if (source.url) started = self.playUrl(ha, source.url, gen);
-    else if (mode === 'snapshot') started = self.playSnapshots(ha, source.camera, source.refresh, gen);
+    else if (mode === 'snapshot') started = self.playSnapshots(ha, source.camera, source.refresh, gen, source.width, source.height, source.delay);
     else if (mode === 'hls') started = ha.hlsUrl(source.camera).then(function (u) { return self.playHls(u, gen); });
     else if (mode === 'webrtc') started = self.playWebRtc(ha, source.camera, gen);
     else started = ha.mjpegUrl(source.camera).then(function (u) { return self.playImage(u, gen); });
@@ -102,7 +102,7 @@
     });
   };
 
-  Player.prototype.playSnapshots = function (ha, entityId, refreshMs, gen) {
+  Player.prototype.playSnapshots = function (ha, entityId, refreshMs, gen, width, height, delayMs) {
     var self = this;
     var interval = Math.max(200, refreshMs || 500);
     return new Promise(function (resolve, reject) {
@@ -114,7 +114,7 @@
         if (gen !== self.gen) return;
         // Every frame gets a fresh signature: HA signs the query string too,
         // so a cache-busting parameter would invalidate a reused one.
-        ha.snapshotUrl(entityId).then(function (url) {
+        ha.snapshotUrl(entityId, width, height).then(function (url) {
           var pre = new Image();
           pre.onload = function () {
             if (gen !== self.gen) return;
@@ -133,7 +133,7 @@
         if (++failures >= 5) reject(new Error('Snapshots from ' + entityId + ' keep failing'));
         else timer = setTimeout(next, interval * 2);
       }
-      next();
+      timer = setTimeout(next, delayMs || 0);
     });
   };
 

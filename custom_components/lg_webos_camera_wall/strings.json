@@ -9,13 +9,13 @@
           "ha_url": "Home Assistant URL reachable from the TV",
           "token": "Long-lived access token",
           "cameras": "Cameras to show (empty means all)",
-          "mode": "Stream mode"
+          "mode": "Enlarged camera mode"
         },
         "data_description": {
           "ha_url": "Use your HA address on the local network, such as http://192.168.1.10:8123.",
           "token": "Use a token for a dedicated HA user. It is sent to the TV only when you press Send setup to TV.",
           "cameras": "The first four appear immediately; use Left and Right for more pages.",
-          "mode": "MJPEG is recommended. If a stream fails, the app tries snapshots."
+          "mode": "The four-camera grid always uses reduced snapshots. MJPEG or HLS runs only when one camera is enlarged."
         }
       }
     },
@@ -32,7 +32,7 @@
           "ha_url": "Home Assistant URL reachable from the TV",
           "token": "Long-lived access token",
           "cameras": "Cameras to show (empty means all)",
-          "mode": "Stream mode"
+          "mode": "Enlarged camera mode"
         }
       }
     }

@@ -1,14 +1,14 @@
 # LG webOS Camera Wall
 
-A separate full-screen camera dashboard for rooted LG webOS TVs. It shows four Home Assistant cameras at a time, with paging and a single-camera view. It does not modify `ha-lg-webos-pip`.
+A separate full-screen camera dashboard for rooted LG webOS TVs. It shows four Home Assistant cameras at a time, with paging and a single-camera view.
 
 ## TV app
 
-Build with `cd tv-app && npm run package` (requires the webOS `ares-package` CLI). Install the resulting `dist/io.github.lukeshepp.camera-wall_0.1.0_all.ipk` on the TV using your normal root/Homebrew method.
+Build with `cd tv-app && npm run package` (requires the webOS `ares-package` CLI). Install the resulting `dist/io.github.lukeshepp.camera-wall_0.1.1_all.ipk` on the TV using your normal root/Homebrew method.
 
 Open **Camera Wall** once from the TV app list. It asks for the HA URL and a long-lived access token, unless the HA companion has sent them. The app never embeds a token in the IPK. Its app ID is `io.github.lukeshepp.camera-wall`.
 
-The app defaults to MJPEG and falls back to one snapshot per second if a camera cannot supply MJPEG. HLS is selectable, but several simultaneous hardware video streams may exceed the TV's decoder capacity.
+The four-camera grid always uses 800 × 450 snapshots, refreshed every three seconds and staggered across the cameras. Enlarging one camera switches to the selected mode (MJPEG by default, with snapshot fallback). HLS is available for the enlarged camera only. Home Assistant's image sizing is best effort; some cameras may still return larger images.
 
 Remote controls: Left/Right change pages, Up/Down choose a tile, OK enlarges or restores it, Back leaves the enlarged view or exits, and Yellow opens settings. The Magic Remote pointer can also select a tile and the Settings/Refresh buttons.
 

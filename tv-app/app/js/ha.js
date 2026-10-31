@@ -167,8 +167,10 @@
       .then(function (r) { return self.abs(r.path); });
   };
 
-  HAClient.prototype.snapshotUrl = function (entityId) {
-    return this.signPath('/api/camera_proxy/' + entityId, 60);
+  HAClient.prototype.snapshotUrl = function (entityId, width, height) {
+    var path = '/api/camera_proxy/' + entityId;
+    if (width && height) path += '?width=' + width + '&height=' + height;
+    return this.signPath(path, 60);
   };
 
   HAClient.prototype.mjpegUrl = function (entityId) {
