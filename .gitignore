@@ -1,0 +1,6 @@
+tv-app/build/
+tv-app/dist/
+tv-app/node_modules/
+__pycache__/
+*.pyc
+.DS_Store

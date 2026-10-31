@@ -1,0 +1,16 @@
+{
+  "id": "io.github.lukeshepp.camera-wall",
+  "version": "0.1.0",
+  "vendor": "Luke-Shepp",
+  "type": "web",
+  "main": "index.html",
+  "title": "Camera Wall",
+  "icon": "icon.png",
+  "largeIcon": "largeIcon.png",
+  "resolution": "1920x1080",
+  "defaultWindowType": "card",
+  "disableBackHistoryAPI": true,
+  "requiredACG": [],
+  "noSplashOnLaunch": true,
+  "spinnerOnLaunch": false
+}

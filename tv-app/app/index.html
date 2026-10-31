@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Camera Wall</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <header class="bar">
+    <div><h1>Camera Wall</h1><span id="count"></span></div>
+    <div class="actions"><button id="settings-button">Settings</button><button id="refresh-button">Refresh</button></div>
+  </header>
+  <main>
+    <div id="message" class="message hidden"></div>
+    <div id="grid" class="grid"></div>
+  </main>
+  <footer><span id="page"></span><span>◀ ▶ pages &nbsp; ▲ ▼ choose &nbsp; OK enlarge &nbsp; Back close</span></footer>
+  <section id="settings" class="settings hidden">
+    <div class="panel">
+      <h2>Camera Wall setup</h2>
+      <p>Enter the same Home Assistant address and token used by the PiP app, or use the HA integration’s Send setup button.</p>
+      <label>Home Assistant URL<input id="ha-url" type="url" placeholder="http://homeassistant.local:8123" spellcheck="false"></label>
+      <label>Long-lived access token<input id="ha-token" type="password" placeholder="Paste with LG ThinQ" spellcheck="false"></label>
+      <label>Stream mode<select id="mode"><option value="mjpeg">MJPEG with snapshot fallback</option><option value="snapshot">Snapshots</option><option value="hls">HLS</option></select></label>
+      <p id="selection"></p>
+      <div class="actions"><button id="save-button">Save and open</button><button id="cancel-button">Cancel</button></div>
+      <p id="settings-error" class="problem"></p>
+    </div>
+  </section>
+  <script src="lib/hls.min.js"></script>
+  <script src="js/ha.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

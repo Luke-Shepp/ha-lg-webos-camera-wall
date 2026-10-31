@@ -1,0 +1,53 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set up Camera Wall",
+        "description": "Install the Camera Wall TV app first. After setup, press Send setup to TV once to pair it.",
+        "data": {
+          "tv": "LG webOS TV",
+          "ha_url": "Home Assistant URL reachable from the TV",
+          "token": "Long-lived access token",
+          "cameras": "Cameras to show (empty means all)",
+          "mode": "Stream mode"
+        },
+        "data_description": {
+          "ha_url": "Use your HA address on the local network, such as http://192.168.1.10:8123.",
+          "token": "Use a token for a dedicated HA user. It is sent to the TV only when you press Send setup to TV.",
+          "cameras": "The first four appear immediately; use Left and Right for more pages.",
+          "mode": "MJPEG is recommended. If a stream fails, the app tries snapshots."
+        }
+      }
+    },
+    "abort": {
+      "no_tv": "No LG webOS TV found. Set up the LG webOS TV integration first.",
+      "already_configured": "Camera Wall is already configured for this TV."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Camera Wall settings",
+        "data": {
+          "ha_url": "Home Assistant URL reachable from the TV",
+          "token": "Long-lived access token",
+          "cameras": "Cameras to show (empty means all)",
+          "mode": "Stream mode"
+        }
+      }
+    }
+  },
+  "selector": {
+    "mode": {
+      "options": {
+        "mjpeg": "MJPEG with snapshot fallback",
+        "snapshot": "Snapshots",
+        "hls": "HLS with snapshot fallback"
+      }
+    }
+  },
+  "button": {
+    "send_setup": {"name": "Send setup to TV"},
+    "open": {"name": "Open Camera Wall"}
+  }
+}

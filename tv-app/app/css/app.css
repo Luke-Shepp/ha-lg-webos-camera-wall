@@ -1,0 +1,28 @@
+* { box-sizing: border-box; }
+html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #0b1018; color: #f1f5f9; font-family: "LG Smart UI", Arial, sans-serif; }
+.hidden { display: none !important; }
+.bar { height: 108px; padding: 20px 38px; display: flex; align-items: center; justify-content: space-between; background: #121b28; }
+.bar > div:first-child { display: flex; align-items: baseline; gap: 24px; }
+h1 { margin: 0; font-size: 38px; }
+#count, footer { color: #aab8ca; font-size: 24px; }
+button { padding: 13px 24px; border: 2px solid #485c72; border-radius: 10px; background: #203247; color: #fff; font-size: 24px; }
+button:focus, input:focus, select:focus { outline: 3px solid #57c9ff; }
+.actions { display: flex; gap: 16px; }
+main { height: calc(100% - 166px); padding: 20px 38px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 18px; height: 100%; }
+.grid.single { grid-template-columns: 1fr; grid-template-rows: 1fr; }
+.tile { position: relative; min-width: 0; min-height: 0; background: #05080c; border: 3px solid #293c50; border-radius: 12px; overflow: hidden; }
+.tile.selected { border-color: #57c9ff; }
+.tile video, .tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #05080c; }
+.tile .name { position: absolute; left: 0; right: 0; bottom: 0; padding: 32px 18px 15px; background: linear-gradient(transparent, rgba(0, 0, 0, .86)); font-size: 25px; }
+.tile .state { position: absolute; top: 15px; left: 18px; right: 18px; color: #e6ecf2; font-size: 24px; text-shadow: 0 2px 5px #000; }
+.tile .state:empty { display: none; }
+.message { height: 100%; display: flex; align-items: center; justify-content: center; color: #d3dfeb; font-size: 32px; text-align: center; }
+footer { height: 58px; display: flex; align-items: center; justify-content: space-between; padding: 0 38px; background: #121b28; }
+.settings { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(5, 9, 14, .96); }
+.panel { width: 1160px; padding: 45px 60px; background: #172332; border-radius: 20px; }
+.panel h2 { font-size: 42px; margin: 0 0 20px; }
+.panel p, .panel label { font-size: 24px; line-height: 1.45; }
+.panel label { display: block; margin: 20px 0; }
+.panel input, .panel select { display: block; width: 100%; margin-top: 8px; padding: 14px; border: 2px solid #485c72; border-radius: 8px; background: #09121d; color: #fff; font-size: 25px; }
+.problem { color: #ffb1b1; min-height: 32px; }
